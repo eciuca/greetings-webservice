@@ -1,7 +1,9 @@
 package com.emanuelciuca.training.service;
 
 import com.emanuelciuca.training.model.Greeting;
+import com.emanuelciuca.training.repo.GreetingsRepository;
 import org.apache.logging.log4j.util.Strings;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
@@ -9,8 +11,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.Supplier;
 
 @Service
@@ -18,13 +20,27 @@ public class GreetingsService {
 
     private static final String DEFAULT_TEMPLATE = "Hello, %s!";
     private static final String APP_LANG_TEMPLATES_LOCATION = "APP_LANG_TEMPLATES_LOCATION";
-    private final AtomicLong counter = new AtomicLong();
+
+    private final GreetingsRepository repository;
+
+    @Autowired
+    public GreetingsService(GreetingsRepository repository) {
+        this.repository = repository;
+    }
 
     public Greeting createNewGreeting(String name, String language) {
-        var id = counter.incrementAndGet();
         var content = createGreetingContent(name, language);
+        var greeting = Greeting.from(content);
 
-        return new Greeting(id, content);
+        return repository.save(greeting);
+    }
+
+    public Optional<Greeting> getById(long id) {
+        return repository.findById(id);
+    }
+
+    public List<Greeting> getAllGreetings() {
+        return repository.findAll();
     }
 
     private String createGreetingContent(String name, String language) {

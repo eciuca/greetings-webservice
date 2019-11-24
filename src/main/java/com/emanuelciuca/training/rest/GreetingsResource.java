@@ -3,9 +3,10 @@ package com.emanuelciuca.training.rest;
 import com.emanuelciuca.training.model.Greeting;
 import com.emanuelciuca.training.service.GreetingsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/greetings")
@@ -18,13 +19,22 @@ public class GreetingsResource {
         this.service = service;
     }
 
-    @RequestMapping("/greeting")
+    @GetMapping("/new")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name,
                              @RequestParam(value = "lang", defaultValue = "en") String language) {
-        var greeting = service.createNewGreeting(name, language);
-
-        return greeting;
+        return service.createNewGreeting(name, language);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Greeting> getGreetingById(@PathVariable(value = "id") Long id) {
+        var greetingById = service.getById(id);
+
+        return ResponseEntity.of(greetingById);
+    }
+
+    @GetMapping()
+    public List<Greeting> getAllGreetings() {
+        return service.getAllGreetings();
+    }
 
 }
