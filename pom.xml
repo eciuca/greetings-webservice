@@ -10,9 +10,9 @@
 	</parent>
 
 	<groupId>com.emanuelciuca.training.rest</groupId>
-	<artifactId>simple-webservice</artifactId>
+	<artifactId>greetings-webservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>simple-webservice</name>
+	<name>greetings-webservice</name>
 
 	<description>Demo project for Spring Boot</description>
 
