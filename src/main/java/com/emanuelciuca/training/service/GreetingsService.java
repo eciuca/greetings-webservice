@@ -18,7 +18,6 @@ import java.util.function.Supplier;
 @Service
 public class GreetingsService {
 
-    private static final String DEFAULT_TEMPLATE = "Hello, %s!";
     private static final String APP_LANG_TEMPLATES_LOCATION = "APP_LANG_TEMPLATES_LOCATION";
 
     private final GreetingsRepository repository;
@@ -47,7 +46,7 @@ public class GreetingsService {
         var langTemplate =
                 readTemplateFromEnvironmentVariableLocation(language)
                         .or(readTemplateFromClasspath(language))
-                        .orElse(DEFAULT_TEMPLATE);
+                        .orElseThrow(() -> new IllegalArgumentException("Could not find the template for language:  {}" + language));
 
         return String.format(langTemplate, name);
     }
