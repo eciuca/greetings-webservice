@@ -1,4 +1,4 @@
-FROM openjdk:12
+FROM openjdk:13
 
 ENV EXECUTABLE_JAR=greetings-webservice-0.0.1-SNAPSHOT.jar
 ENV APP_LANG_TEMPLATES_LOCATION=/greeting_templates
