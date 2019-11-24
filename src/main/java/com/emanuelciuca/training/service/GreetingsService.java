@@ -46,7 +46,7 @@ public class GreetingsService {
         var langTemplate =
                 readTemplateFromEnvironmentVariableLocation(language)
                         .or(readTemplateFromClasspath(language))
-                        .orElseThrow(() -> new IllegalArgumentException("Could not find the template for language:  {}" + language));
+                        .orElseThrow(() -> new IllegalArgumentException("Could not find the template for language:  " + language));
 
         return String.format(langTemplate, name);
     }
