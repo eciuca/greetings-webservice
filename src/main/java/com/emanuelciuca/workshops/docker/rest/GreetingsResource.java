@@ -1,7 +1,7 @@
-package com.emanuelciuca.training.rest;
+package com.emanuelciuca.workshops.docker.rest;
 
-import com.emanuelciuca.training.model.Greeting;
-import com.emanuelciuca.training.service.GreetingsService;
+import com.emanuelciuca.workshops.docker.model.Greeting;
+import com.emanuelciuca.workshops.docker.service.GreetingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

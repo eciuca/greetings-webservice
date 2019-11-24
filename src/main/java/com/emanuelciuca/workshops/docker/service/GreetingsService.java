@@ -1,7 +1,7 @@
-package com.emanuelciuca.training.service;
+package com.emanuelciuca.workshops.docker.service;
 
-import com.emanuelciuca.training.model.Greeting;
-import com.emanuelciuca.training.repo.GreetingsRepository;
+import com.emanuelciuca.workshops.docker.model.Greeting;
+import com.emanuelciuca.workshops.docker.repo.GreetingsRepository;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

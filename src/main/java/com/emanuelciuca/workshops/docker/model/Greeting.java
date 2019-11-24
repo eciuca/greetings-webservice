@@ -1,4 +1,4 @@
-package com.emanuelciuca.training.model;
+package com.emanuelciuca.workshops.docker.model;
 
 import javax.persistence.*;
 import java.util.Objects;

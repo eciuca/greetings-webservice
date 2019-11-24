@@ -1,4 +1,4 @@
-package com.emanuelciuca.training.rest.simplewebservice;
+package com.emanuelciuca.workshops.docker.rest.greetingswebservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

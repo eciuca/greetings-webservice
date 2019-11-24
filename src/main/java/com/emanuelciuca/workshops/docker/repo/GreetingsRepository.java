@@ -1,6 +1,6 @@
-package com.emanuelciuca.training.repo;
+package com.emanuelciuca.workshops.docker.repo;
 
-import com.emanuelciuca.training.model.Greeting;
+import com.emanuelciuca.workshops.docker.model.Greeting;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
