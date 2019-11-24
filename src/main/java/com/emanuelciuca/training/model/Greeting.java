@@ -1,4 +1,4 @@
-package com.emanuelciuca.training.rest;
+package com.emanuelciuca.training.model;
 
 public class Greeting {
     private final long id;
