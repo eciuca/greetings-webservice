@@ -62,8 +62,11 @@ public class GreetingsService {
         var filePath = Path.of(fileLocation);
 
         try {
-            String content = Files.readString(filePath);
+            if (!Files.exists(filePath)) {
+                return Optional.empty();
+            }
 
+            var content = Files.readString(filePath);
             return Optional.of(content);
 
         } catch (IOException e) {
