@@ -9,4 +9,4 @@ COPY target/$EXECUTABLE_JAR /app
 VOLUME /greeting_templates
 VOLUME /app_data
 
-CMD java -jar $EXECUTABLE_JAR
+CMD java -Dspring.profiles.active=prod -jar $EXECUTABLE_JAR
